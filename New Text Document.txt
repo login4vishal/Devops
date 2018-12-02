@@ -1,0 +1,86 @@
+Create a new AWS account
+
+Step 1
+go to httpsaws.amazon.com
+
+create account
+Step 2
+open the console and check the running instances click on launch instance
+
+Step 3 
+
+	3.1	Choose an Amazon Machine Image (AMI) -- Amazon Linux 2 AMI (HVM), SSD Volume Type - ami-02e680c4540db351e (64-bit x86)  ami-0998858ab6ad47da8 (64-bit Arm)
+	3.2 Choose an Instance Type -- No any changes
+	3.3 Configure Instance Details -- added the script in optinal textarea	
+					Advanced Details --
+							User data -- 
+									!binsh
+									curl -L httpsus-west-2-aws-training.s3.amazonaws.comawsu-splspl03-working-elbstaticbootstrap-elb.shsh
+	
+				This script taken from httpcollabedit.com2c7pr
+				
+				Reason of script as  If we open the many instances then virtual machin or website should be open..
+	3.4 Add Storage -- No any changes
+	3.5 Add Tags -- 
+			Key -- Nikhil
+			Value -- WebserverDemo
+	3.6 Configure Security Group -- 
+			added role as -- 
+				Type -- HTTP and source 0.0.0.00
+				
+	3.7 click on Review and Launch button 
+	3.8 click on Launch 
+	3.9 select the create a new key pair option from list
+		key pair name as NikhilPairKey
+		Download the .pem file (private key file)
+		
+		Note - Your instances are now launching
+				The following instance launches have been initiated i-0ae354b518394a66c View launch log
+Step 4
+	Click on instance id (i-0ae354b518394a66c) and click on connect button.
+
+##################################################################################################################################
+
+I would like to connect with
+A standalone SSH client 
+A Java SSH Client directly from my browser (Java required) 
+
+To access your instance
+Open an SSH client. (find out how to connect using PuTTY)
+Locate your private key file (NikhilPairKey.pem). The wizard automatically detects the key you used to launch the instance.
+Your key must not be publicly viewable for SSH to work. Use this command if needed
+chmod 400 NikhilPairKey.pem
+Connect to your instance using its Public DNS
+ec2-3-16-15-237.us-east-2.compute.amazonaws.com
+Example
+ssh -i NikhilPairKey.pem ec2-user@ec2-3-16-15-237.us-east-2.compute.amazonaws.com
+Please note that in most cases the username above will be correct, however please ensure that you read your AMI usage instructions to ensure that the AMI owner has not changed the default AMI username.
+
+##################################################################################################################################
+
+Step 5
+	Download the putty.exe(32 bit) and puttygen.exe(32 bit) from httpswww.chiark.greenend.org.uk~sgtathamputtylatest.html
+
+
+Open the puttygen.exe
+	--click on load button 
+	--load the .pem file(eg. NikhilPairFile.exe)
+	-- click on save private key
+
+Step 6
+	Open putty.exe
+		Host Name - ec2-3-16-15-237.us-east-2.compute.amazonaws.com
+			go to ssh -- auth -- add the .ppk file (NikhilPairFile.ppk)
+			click on open
+			use command as -- ec2-user (username)
+
+
+
+
+
+RedHat instance
+
+Your instances are now launching
+The following instance launches have been initiated i-0ba7dec52611e9b0e View launch log
+
+ec2-18-222-111-78.us-east-2.compute.amazonaws.com

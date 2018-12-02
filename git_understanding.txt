@@ -1,0 +1,4 @@
+cmd
+ls -ltr
+pwd
+cp -r source dest
